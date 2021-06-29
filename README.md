@@ -6,7 +6,7 @@ An important part of making a meteorological prediction is to validate your mode
 
 To download ERA5 data, you can use the ERA5_download.py script in which you can select the dates, pressure levels and variables to extract from the ERA5 database in a single file. You can also change the format of the file (netCDF is default) and the area (as an array with the limit points [N,W,S,E]) covered by the extraction.
 
-**IMPORTANT: If it is your first time downloading ERA5 data, see instructions [in the Copernicus website.]** (https://cds.climate.copernicus.eu/api-how-to)
+**IMPORTANT: If it is your first time downloading ERA5 data, see instructions [in the Copernicus website.](https://cds.climate.copernicus.eu/api-how-to)**
 
 Having two datasets -one of your simulation and one reanalysis- it's easy to analise the spatial behaviour of your simulation using the _xarray_ python package. The only issue is to match the spatial resolutions of the WRF simulation file and the ERA5 file. The ERA5 database has an horizontal resolution of 31km, while WRF model is usually run at higher resolutions of about 1-10 km. As a first approximation, the main script **evaluate_WRF.py** uses _xshape_ to interpolate the coarser resolution data to match the higher resolution data file. Careful must be taken though, because in some cases interpolation may not reflect the reality.
 Once having data at the same resolution, the script provides some useful statistics to analise the spatial behaviour of the WRF simulation.
